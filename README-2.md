@@ -5,6 +5,8 @@ The group [TeamBS] worked together as a whole. Leho was the lead in action. Solo
 
 No extra features.
 
+https://www.youtube.com/watch?v=x1EmYXdrusk
+
 
 Screen Recording Software: OBS 27.0.1 
 IDE: Eclipse 2021-06 
