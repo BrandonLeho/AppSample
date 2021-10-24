@@ -1,27 +1,31 @@
 /**
- * This program was made by Team BS.
+ * This program gives the user the opportunity to
+ * play with a set of preset arrays. The user has
+ * the option to add or remove content from the 
+ * array. They also get to see the status of the
+ * array such as: if it's empty, the size, and the
+ * current content. They will get to do this with two
+ * preset arrays, then once they are done with them,
+ * they get to compare those two arrays with union,
+ * intersection, and difference.
+ * 
+ * @author Brandon Leho, Brandon Lequang, Sean Solomon
  */
 
-
- //
-import java.util.Arrays;c
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import jdk.tools.jlink.resources.plugins;
-
-
 public class ArrayBagTest
 {
-   public static void main(String[] args)
+   @SuppressWarnings("unchecked")
+public static void main(String[] args)
    {
 	   Scanner scan = new Scanner(System.in);
 	
-	   Set<String> firstArray = new HashSet<String>();
-	   firstArray.addAll(Arrays.asList(new String[] {}));
-	   Set<String> secondArray = new HashSet<String>();
-	   secondArray.addAll(Arrays.asList(new String[] {}));
+	   BagInterface<String> firstArray = new ResizeableArrayBag<>();
+	   BagInterface<String> secondArray = new ResizeableArrayBag<>();
 	   
 	   //This adds the letters A, C, E, G, I to the first array.
 	   //Each letter has its own specific function seen further on in the code.
@@ -77,7 +81,7 @@ public class ArrayBagTest
 		   		break;
 		   			
 		   	case "s": //Case S scans the size of the first array through firstArray.size() and prints it.
-		   		System.out.println("The size of this array is " + firstArray.size() + "\n");
+		   		System.out.println("The size of this array is " + firstArray.getCurrentSize() + "\n");
 		   		break;
 		   		 
 		   	case "r": //Case R prompts the user what is to be removed in the first array.
@@ -126,7 +130,7 @@ public class ArrayBagTest
 	   
 	   System.out.println("Now on the second array.\n");
 
-	   //The code distiguishes the different/new array through secondArray
+	   //The code distinguishes the different/new array through secondArray
 	   
 	   //This adds the letters B, C, D, F, G, H to the second array.
 	   //Each letter has its own specific function seen further on in the code.
@@ -182,7 +186,7 @@ public class ArrayBagTest
 		   		break;
 		   			
 		   	case "s": //Case S scans the size of the second array through secondArray.size() and prints it.
-		   		System.out.println("The size of this array is " + secondArray.size() + "\n");
+		   		System.out.println("The size of this array is " + secondArray.getCurrentSize() + "\n");
 		   		break;
 		   		 
 		   	case "r": //Case R prompts the user what is to be removed in the second array.
@@ -213,7 +217,7 @@ public class ArrayBagTest
 		   		{
 		   			System.out.println("Array is kept the same\n");
 		   		}
-		   		else //Case C recognizes false inputs and displays an error message whilist not making any changes to the second array.
+		   		else //Case C recognizes false inputs and displays an error message whilst not making any changes to the second array.
 		   		{
 		   			System.out.println("You didn't put a valid input, array has not been cleared.\n");
 		   		}
@@ -240,21 +244,15 @@ public class ArrayBagTest
 		   
 		   switch(question) { //The switch case enters the user's inputs and acts depending on the given input.
 		   	case "u": //Case U scans both arrays and prints their union.
-		   		Set<String> union = new HashSet<String>(firstArray);
-		   		union.addAll(secondArray);
-		   		System.out.println("Union of the two sets is: " + union);
+		   		System.out.println(Arrays.toString(firstArray.union(secondArray).toArray())); 		
 		   		break;
 		   		
 		   	case "i": //Case I scans both arrays and prints their intersections.
-		   		Set<String> intersection = new HashSet<String>(firstArray);
-		   		intersection.retainAll(secondArray);
-		   		System.out.println("Intersection of the two sets is: " + intersection);
+		   		System.out.println(Arrays.toString(firstArray.intersection(secondArray).toArray()));
 		   		break;
 		   		
 		   	case "d": //Case D scans both arrays and prints their differnece.
-		   		Set<String> difference = new HashSet<String>(firstArray);
-		   		difference.removeAll(secondArray);
-		   		System.out.println("Difference of the two sets is: " + difference);
+		   		System.out.println(Arrays.toString(firstArray.difference(secondArray).toArray()));
 		   		break;
 		   		
 		   	case "q": //Case Q prints a good-bye message and allows the user to quit the program.
