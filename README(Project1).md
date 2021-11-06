@@ -1,5 +1,4 @@
-Brandon Leho, Brandon Lequang, Sean Solomon
-
+Brandon Leho (USERNAME: BrandonLeho), Brandon Lequang (USERNAME: Bvlvq), Sean Solomon (USERNAME: 1sean0).
 Contribution: Brandon Leho helped code programs ArrayBagTest, ResizeableArray, LinkedBagTest, and LinkedBag
 Contribution: Brandon Lequang helped code programs ResizeableArray, LinkedBagTest, and LinkedBag
 Contribution: Sean Solomon helped code ArrayBagTest, LinkedBagTest, and Linked Bag
